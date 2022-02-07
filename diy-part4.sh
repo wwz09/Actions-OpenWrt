@@ -17,8 +17,6 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 #修改默认主机名
 sed -i 's/OpenWrt/CM520/g' package/base-files/files/bin/config_generate
 
-# 替换mac80211.sh
-rm -rf package/kernel/mac80211/files/lib/wifi/mac80211.sh 
 
 # 拷贝mac80211.sh
 cp -f ../mac80211/KYT/mac80211.sh package/kernel/mac80211/files/lib/wifi/
