@@ -4,9 +4,9 @@
 
       
           
-下载：    https://github.com/wwz09/Actions-AC-RM2100-GDOCK/releases
+下载：    https://github.com/wwz09/Actions-OpenWrt/releases
 
-流程：    https://github.com/wwz09/Actions-AC-RM2100-GDOCK/actions
+流程：    https://github.com/wwz09/Actions-OpenWr/actions
 
 A template for building OpenWrt with GitHub Actions
 
