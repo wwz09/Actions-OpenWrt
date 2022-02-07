@@ -19,7 +19,8 @@ sed -i 's/OpenWrt/CM520/g' package/base-files/files/bin/config_generate
 
 
 # 拷贝mac80211.sh
-cp -f ../mac80211/KYT/mac80211.sh package/kernel/mac80211/files/lib/wifi/
+rm -rf package/kernel/mac80211/files/lib/wifi
+cp -rf ../mac80211/KYT/wifi package/kernel/mac80211/files/lib/wifi
 
 
 # '删除旧版主题文件
