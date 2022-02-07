@@ -22,9 +22,7 @@ sed -i 's/OpenWrt/CM520/g' package/base-files/files/bin/config_generate
 sed -i 's/OpenWrt/KYT/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #修改默认无线加密及密码
-sed -i 's/set wireless.default_radio${devidx}.encryption=none/set wireless.default_radio${devidx}.encryption=psk2\
-
-set wireless.default_radio${devidx}.key=abc5124937,/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/set wireless.default_radio${devidx}.encryption=none/set wireless.default_radio${devidx}.encryption=psk2 \set wireless.default_radio${devidx}.key=abc5124937,/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 
 # '删除旧版主题文件
