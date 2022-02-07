@@ -19,11 +19,10 @@ sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generat
 sed -i 's/OpenWrt/GDOCK/g' package/base-files/files/bin/config_generate
 
 
-#修改默认无线名称
-sed -i 's/OpenWrt/KKT/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# 拷贝mac80211.sh
+rm -rf package/kernel/mac80211/files/lib/wifi
+cp -rf $GITHUB_WORKSPACE/mac80211/KKT/wifi package/kernel/mac80211/files/lib/wifi
 
-#修改默认无线加密及密码
-sed -i 's/set wireless.default_radio${devidx}.encryption=none/set wireless.default_radio${devidx}.encryption=psk2 \set wireless.default_radio${devidx}.key=abc5124937,/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 
 # '删除旧版主题文件
@@ -39,7 +38,10 @@ git clone https://github.com/YL2209/luci-theme-argon-lr.git package/lean/luci-th
 #'修改WIFI国家区域'
 sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
-# '修改输出文件名'
+#修改默认无线名称
+sed -i 's/OpenWrt/KKT/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+# 修改输出文件名
 sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=$(shell date +%Y%m%d)-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
 # '修改连接数数'
