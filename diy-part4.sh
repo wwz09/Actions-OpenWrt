@@ -32,6 +32,10 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/lu
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 git clone https://github.com/YL2209/luci-theme-argon-lr.git package/lean/luci-theme-argon-lr
 
+# '修改默认主题为Argon'
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
+
 #修改WIFI国家区域
 sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
