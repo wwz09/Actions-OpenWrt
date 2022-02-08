@@ -33,6 +33,8 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lea
 git clone https://github.com/YL2209/luci-theme-argon-lr.git package/lean/luci-theme-argon-lr
 
 # '修改默认主题为Argon'
+sed -i 's/option mediaurlbase \/luci-static\/bootstrap/option mediaurlbase \/luci-static\/argon/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
+sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/luci-static\/argon\"/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
 
