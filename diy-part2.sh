@@ -35,8 +35,10 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/lu
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 git clone https://github.com/YL2209/luci-theme-argon-lr.git package/lean/luci-theme-argon-lr
 
-#'应用过滤插件'
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+# '修改默认主题为Argon'
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
+
 
 #'修改WIFI国家区域'
 sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -52,8 +54,4 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 
 # '修改概览里时间显示为中文数字'
 sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/arm/index.htm
-
-#' 添加温度显示'
-sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-
 
