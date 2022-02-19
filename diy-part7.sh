@@ -15,7 +15,7 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 #修改默认主机名
-sed -i 's/OpenWrt/RM2100/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/EA6500/g' package/base-files/files/bin/config_generate
 
 
 # 拷贝mac80211.sh
