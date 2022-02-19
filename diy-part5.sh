@@ -6,7 +6,7 @@
 # See /LICENSE for more information.
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-par3.sh
+# File name: RM2100.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
@@ -15,12 +15,16 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 #修改默认主机名
-sed -i 's/OpenWrt/NEWIFI3/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/RM2100/g' package/base-files/files/bin/config_generate
 
 
 # 拷贝mac80211.sh
 rm -rf package/kernel/mac80211/files/lib/wifi
 cp -rf $GITHUB_WORKSPACE/mac80211/KYT/wifi package/kernel/mac80211/files/lib/wifi
+
+# 拷贝files到根目录
+rm -rf files
+cp -rf $GITHUB_WORKSPACE/diy/TY/files files
 
 
 # '删除旧版主题文件
@@ -36,9 +40,8 @@ git clone https://github.com/YL2209/luci-theme-argon-lr.git package/lean/luci-th
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
 
-
-#修改WIFI国家区域
-sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#'修改WIFI国家区域'
+# sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #修改默认无线名称
 sed -i 's/OpenWrt/KYT/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -52,4 +55,6 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修改概览里时间显示为中文数字
 sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/arm/index.htm
 
+#' 添加温度显示'
+sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
