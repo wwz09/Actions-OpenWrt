@@ -182,7 +182,7 @@ detect_mac80211() {
 			set wireless.default_radio${devidx}.network=lan
 			set wireless.default_radio${devidx}.mode=ap
 			set wireless.default_radio${devidx}.ssid=KYT
-			set wireless.default_radio${devidx}.encryption=psk2
+			set wireless.default_radio${devidx}.encryption=psk-mixed+ccmp
 			set wireless.default_radio${devidx}.key=abc5124937,
 EOF
 		uci -q commit wireless
