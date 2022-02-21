@@ -27,14 +27,17 @@ sed -i 's/OpenWrt/CM520/g' package/base-files/files/bin/config_generate
 chmod 0755 files
 cp -rf  $GITHUB_WORKSPACE/diy/KYT/wireless files/etc/config
 
+# '应用过滤插件'
+git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
-# '删除旧版主题文件
+
+# '添加argon-config 使用最新argon
 rm -rf package/lean/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
 
 #  '添加新的主题包'
 git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 git clone https://github.com/YL2209/luci-theme-argon-lr.git package/lean/luci-theme-argon-lr
 
 # '修改默认主题为Argon'
