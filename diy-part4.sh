@@ -20,12 +20,12 @@ sed -i 's/OpenWrt/CM520/g' package/base-files/files/bin/config_generate
 
 # 拷贝mac80211.sh
 # rm -rf package/kernel/mac80211/files/lib/wifi
-# cp -rf $GITHUB_WORKSPACE/diy/KYT/wifi package/kernel/mac80211/files/lib/wifi
+# cp -rf $GITHUB_WORKSPACE/diy/KYTC/wifi package/kernel/mac80211/files/lib/wifi
 
 
 # 拷贝wireless文件到files目录
 chmod 0755 files
-cp -rf  $GITHUB_WORKSPACE/diy/KYT/wireless files/etc/config
+cp -rf  $GITHUB_WORKSPACE/diy/KYTC/wireless files/etc/config
 
 # '应用过滤插件'
 git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
@@ -46,7 +46,7 @@ sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
 
 
 #修改WIFI国家区域
-sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #修改默认无线名称
 sed -i 's/OpenWrt/KYT/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
