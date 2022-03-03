@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build GDOCK-KYT
+name: Build openwrt-GDOCK-KYT
 
 on:
   repository_dispatch:
