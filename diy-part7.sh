@@ -32,9 +32,9 @@ git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
 
 # '添加argon-config 使用最新argon
-rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
+# rm -rf package/lean/luci-theme-argon
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
 
 #  '添加新的主题包'
 git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
